@@ -1,4 +1,25 @@
+:root {
+  --color-link: rgb(255, 39, 129);
+  --color-line: rgb(228, 228, 228);
+  --color-highlight: rgb(253, 253, 115);
+  --max-width: 600px;
+}
+
 /* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--color-link);
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -7,13 +28,85 @@ body {
 }
 
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: #333;
   color: white;
-  padding: 20px;
   text-align: center;
 }
 
-nav ul {
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  max-width: var(--max-width);
+}
+
+.middle-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  max-width: var(--max-width);
+}
+
+/* projects */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-name {
+  padding: 0px 5px;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.project-info {
+  padding: 0px 5px;
+  font-size: 0.95rem;
+  text-transform: capitalize;
+}
+
+.project-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* hightlight */
+span.hl {
+  display: inline-block;
+  background-color: var(--color-highlight);
+  padding: 0px 4px;
+  font-weight: 600;
+}
+
+/* others */
+.pr nav ul {
   list-style: none;
   padding: 0;
 }
@@ -29,8 +122,14 @@ nav ul li a {
 }
 
 section {
-  padding: 20px;
   margin: 20px;
+  padding: 10px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid var(--color-line);
+}
+
+section.no-border {
+  border: none;
 }
 
 footer {

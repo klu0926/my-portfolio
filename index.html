@@ -5,6 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
     <script src="./script.js" defer></script>
+    <!--font awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--icon-->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
     <title>Kuo Yu Lu</title>
   </head>
   <body>
@@ -14,9 +41,18 @@
         <h1>Kuo Yu Lu</h1>
         <nav>
           <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#ac-about">About</a></li>
+            <li><a href="#ac-projects">Projects</a></li>
+            <li><a href="#ac-path">Path</a></li>
+            <li><a href="#ac-contact">Contact</a></li>
+            <li>
+              <a
+                href="https://github.com/klu0926?tab=repositories"
+                target="_blank"
+              >
+                <i class="fa-brands fa-github fa-lg github-icon"></i>
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -25,25 +61,30 @@
     <div class="middle-container">
       <!-- About Section -->
       <section id="about">
+        <div class="anchor" id="ac-about"></div>
         <h2>About Me</h2>
         <p>
-          Hi, I’m Lu, a
-          <span class="hl">Unity Cinematic Designer turned web developer</span>
-          with a passion for crafting immersive digital experiences. With years
-          of experience in game cinematics, I’ve developed a sharp eye for
-          storytelling, design, and seamless user interaction. Now, I’m
-          expanding my expertise into <span class="hl">web development</span>,
-          blending creativity with technical precision. Whether it’s building
-          interactive web applications or designing captivating game sequences,
-          I love creating things that engage and inspire. When I’m not coding,
-          I’m probably unwinding with a game, catching up on the latest
-          releases, or just enjoying a good story-driven adventure.
+          Hi, I’m Kuo Yu Lu—call me Lu. I’m a former
+          <span class="hl">Unity Cinematic Designer turned web developer</span>,
+          passionate about crafting immersive digital experiences. With a
+          background in game cinematics, I’ve honed a keen eye for storytelling,
+          design, and seamless user interaction. Now, I’m expanding my expertise
+          into web development, blending creativity with technical precision to
+          build engaging, interactive applications. Whether designing cinematic
+          game sequences or dynamic web experiences, I thrive on creating things
+          that captivate and inspire.
+        </p>
+        <p>
+          When I’m not coding, you’ll probably find me diving into a game,
+          exploring the latest releases, or getting lost in a great story-driven
+          adventure.
         </p>
       </section>
 
       <!-- Projects Section -->
       <section id="projects">
-        <h2>My Projects</h2>
+        <div class="anchor" id="ac-projects">anchor</div>
+        <h2>Projects</h2>
         <div class="projects-container">
           <!--projects 1-->
           <div class="project-card">
@@ -85,11 +126,98 @@
             <p class="project-name">Project 4</p>
             <p class="project-info">A website created with React.</p>
           </div>
+          <!--projects 5-->
+          <div class="project-card">
+            <img
+              class="project-image"
+              src="https://placehold.co/200"
+              alt="project image"
+            />
+            <p class="project-name">Project 5</p>
+            <p class="project-info">A website created with React.</p>
+          </div>
+          <!--projects 6-->
+          <div class="project-card">
+            <img
+              class="project-image"
+              src="https://placehold.co/200"
+              alt="project image"
+            />
+            <p class="project-name">Project 6</p>
+            <p class="project-info">A website created with React.</p>
+          </div>
+          <!------>
+        </div>
+        <div class="more-project-btn-div">
+          <button class="link-btn">More Projects</button>
+        </div>
+      </section>
+
+      <!-- exp Section -->
+      <section id="exp">
+        <div class="anchor" id="ac-path"></div>
+        <h2>Path</h2>
+        <div class="path-container">
+          <!--path-->
+          <div class="path-div">
+            <p class="path-time">2010</p>
+            <p class="path-info">
+              Graduated from Ringling College of Art & Design with honors in
+              Game Art and Design.
+            </p>
+          </div>
+
+          <div class="path-div">
+            <p class="path-time">2013</p>
+            <p class="path-info">
+              Earned a Master's in Digital Experience and Innovation from the
+              University of Waterloo.
+            </p>
+          </div>
+
+          <div class="path-div">
+            <p class="path-time">2013</p>
+            <p class="path-info">
+              Designed gamification concepts at WiseMap, enhancing student
+              engagement.
+            </p>
+          </div>
+
+          <div class="path-div">
+            <p class="path-time">2017</p>
+            <p class="path-info">
+              Mentored 70+ students as an Enrollment Mentor at a Cram School.
+            </p>
+          </div>
+
+          <div class="path-div">
+            <p class="path-time">2022</p>
+            <p class="path-info">
+              Directed in-engine cinematics at Rayark Inc., shaping immersive
+              narratives.
+            </p>
+          </div>
+
+          <div class="path-div">
+            <p class="path-time">2023</p>
+            <p class="path-info">
+              Completed Web Development training at ALPHA Camp.
+            </p>
+          </div>
+
+          <div class="path-div">
+            <p class="path-time">2024</p>
+            <p class="path-info">
+              Started studying Computer Programming at Humber College.
+            </p>
+          </div>
+          <!---->
         </div>
       </section>
 
       <!-- Contact Section -->
       <section id="contact" class="no-border">
+        <div class="anchor" id="ac-contact">anchor</div>
         <h2>Contact Me</h2>
         <p>
           Have a question or a project in mind? Reach out at
@@ -100,7 +228,7 @@
     </div>
     <!-- Footer Section -->
     <footer>
-      <p>&copy; 2025 Kuo Yu Lu</p>
+      <p>&copy; 2025 Kuo Yu Lu. All Rights Reserved.</p>
     </footer>
   </body>
 </html>

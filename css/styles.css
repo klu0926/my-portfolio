@@ -1,8 +1,14 @@
 :root {
+  --color-primary: rgb(255, 39, 129);
   --color-link: rgb(255, 39, 129);
+  --color-link-hover: rgb(250, 79, 150);
   --color-line: rgb(228, 228, 228);
-  --color-highlight: rgb(253, 253, 115);
+  --color-highlight: rgb(253, 205, 210);
   --max-width: 600px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* General Styles */
@@ -14,10 +20,16 @@
 
 a {
   color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 h2 {
   margin-bottom: 15px;
+  color: var(--color-primary);
 }
 
 body {
@@ -38,14 +50,28 @@ header {
   z-index: 10;
 }
 
+.github-icon {
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+
+.github-icon:hover {
+  transform: scale(1.05);
+  color: var(--color-primary);
+}
+
 .top-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px;
+  padding: 10px;
   max-width: var(--max-width);
+}
+
+#about p {
+  margin-bottom: 15px;
 }
 
 .middle-container {
@@ -98,12 +124,66 @@ header {
   border-radius: 10px;
 }
 
+.more-project-btn-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+}
+
+/* path section */
+.path-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.path-div {
+  display: flex;
+  gap: 15px;
+  cursor: default;
+  transition: 0.2s ease-in-out;
+}
+
+.path-div:hover {
+  color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+.path-time {
+  font-weight: bold;
+}
+
 /* hightlight */
 span.hl {
   display: inline-block;
-  background-color: var(--color-highlight);
   padding: 0px 4px;
-  font-weight: 600;
+  border-radius: 3px;
+  background-color: var(--color-highlight);
+}
+
+/* button */
+.link-btn {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--color-link);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.link-btn:hover {
+  background-color: var(--color-link-hover);
+  scale: 0.98;
+}
+
+/* anchor */
+.anchor {
+  position: absolute;
+  top: -70px;
+  visibility: hidden;
 }
 
 /* others */
@@ -114,7 +194,7 @@ span.hl {
 
 nav ul li {
   display: inline;
-  margin-right: 20px;
+  margin-right: 15px;
 }
 
 nav ul li a {
@@ -123,6 +203,7 @@ nav ul li a {
 }
 
 section {
+  position: relative;
   margin: 20px;
   padding: 10px;
   padding-bottom: 50px;
@@ -134,11 +215,16 @@ section.no-border {
 }
 
 footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #333;
   color: white;
   text-align: center;
   padding: 10px;
   position: fixed;
   bottom: 0;
+  font-size: 0.87rem;
   width: 100%;
+  height: 80px;
 }

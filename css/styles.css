@@ -3,7 +3,8 @@
   --color-link: rgb(255, 39, 129);
   --color-link-hover: rgb(250, 79, 150);
   --color-line: rgb(228, 228, 228);
-  --color-highlight: rgb(187, 255, 204);
+  --color-highlight: rgb(255, 214, 228);
+  --color-dark: #333;
   --max-width: 600px;
 }
 
@@ -33,7 +34,15 @@ h1 {
 
 h2 {
   font-size: 1.5rem;
-  margin-bottom: 15px;
+}
+
+.logo {
+  cursor: pointer;
+  font-size: 1.6rem;
+  margin-left: 10px;
+}
+
+.color-primary {
   color: var(--color-primary);
 }
 
@@ -44,12 +53,43 @@ body {
   line-height: 1.6;
 }
 
+.burger-container {
+  display: none;
+  margin-right: 20px;
+  padding: 7px 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.burger-container:hover {
+  background-color: rgb(88, 88, 88);
+}
+
+.burger {
+  position: relative;
+  width: 30px;
+  height: 23px;
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
+}
+
+.burger::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  content: '';
+  height: 3px;
+  width: 30px;
+  background-color: white;
+}
+
 header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background-color: #333;
+  background-color: var(--color-dark);
   color: white;
   text-align: center;
   z-index: 10;
@@ -84,7 +124,7 @@ header {
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 100px;
+  padding-top: 80px;
   padding-bottom: 100px;
   max-width: var(--max-width);
 }
@@ -219,6 +259,10 @@ section.no-border {
   border: none;
 }
 
+section h2 {
+  margin-bottom: 10px;
+}
+
 footer {
   display: flex;
   justify-content: center;
@@ -232,4 +276,75 @@ footer {
   font-size: 0.87rem;
   width: 100%;
   height: 80px;
+}
+
+/* Media Queries for Mobile Devices */
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.45rem;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  /* nav element */
+  nav {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 56px;
+    right: 30px;
+    padding: 0px;
+    text-align: start;
+    border-top: 3px solid var(--color-primary);
+    background-color: var(--color-dark);
+  }
+
+  .burger-container {
+    display: block;
+  }
+
+  nav ul li{
+    padding: 0;
+    margin: 0;
+  }
+
+  nav ul li a {
+    width: 100%;
+    display: block;
+    padding: 10px 80px 10px 20px;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  nav ul li a:hover {
+    background-color: rgb(79, 79, 79);
+  }
+
+  nav ul li a:hover {
+    text-decoration: none;
+  }
+
+  section {
+    padding: 5px;
+    padding-bottom: 20px;
+  }
+
+  .middle-container {
+    padding-top: 60px;
+  }
+
+  .projects-container {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+
+  .project-image {
+    height: 200px;
+  }
 }

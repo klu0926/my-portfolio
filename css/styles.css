@@ -159,6 +159,7 @@ header {
   padding: 0px 5px;
   font-size: 0.95rem;
   text-transform: capitalize;
+  text-align: left;
 }
 
 .project-image {

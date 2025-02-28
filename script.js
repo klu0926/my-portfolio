@@ -38,6 +38,9 @@ class View {
 
     // Render project cards
     filteredProjects.forEach(project => {
+      // shorten description
+      const description = project.description.slice(0, 100) + '...'
+
       // create porject card
       const projectCard = `
        <div class="project-card">
@@ -47,7 +50,7 @@ class View {
               alt="project image"
             />
             <p class="project-name">${project.title}</p>
-            <p class="project-info">${project.description}</p>
+            <p class="project-info">${description}</p>
           </div>
       `
       // add to container

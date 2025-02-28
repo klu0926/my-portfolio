@@ -26,9 +26,9 @@ export async function getData(dataName) {
     if (!response || !response.ok) throw new Error(response.status)
 
     const json = await response.json()
-    const posts = json.data
-    return { err: null, posts }
+    const projects = json.data
+    return { err: null, projects }
   } catch (err) {
-    return { err, posts: null }
+    return { err, projects: null }
   }
 }

@@ -2,25 +2,25 @@ import { getData } from "./src/getPortfolioData.js"
 
 class Data {
   constructor() {
-    this.posts
+    this.projects
     this.groups
   }
   async getProjectAsync() {
     try {
-      const { err, posts } = await getData('posts')
-      console.log('posts:', posts)
+      const { err, projects } = await getData('posts')
+      console.log('posts:', projects)
       if (err) throw new Error(err)
-      if (!posts || posts.lenght === 0) throw new Error('No post in posts')
+      if (!projects || projects.lenght === 0) throw new Error('No post in posts')
 
       // get groups, store groups
       const groups = new Set()
-      posts.forEach(p => groups.add(p.group))
+      projects.forEach(p => groups.add(p.group))
       this.groups = groups
 
       // store posts
-      this.posts = posts
+      this.projects = projects
 
-      return posts
+      return projects
     } catch (err) {
       console.error(err)
     }
@@ -58,20 +58,20 @@ class View {
 
       // create porject card
       const projectCard = `
-       <div class="project-card">
-        <div class='project-image-div'>
+       <div class="project-card" data-title="${project.title}">
+        <div class='project-image-div'data-title="${project.title}">
          <img
               class="project-image"
               src="${project.cover}"
               alt="project image"
+              data-title="${project.title}"
             />
         </div>
-            <div class='project-info'>
-              <p class="project-name">${project.title}</p>
-            <p class="project-description">${description}</p>
-            <button class='detail'>Detail</button>
+            <div class='project-info' data-title="${project.title}">
+              <p class="project-name" data-title="${project.title}">${project.title}</p>
+            <p class="project-description" data-title="${project.title}">${description}</p>
+            <button class='detail' data-title='${project.title}'>Detail</button>
             </div>
-          
           </div>
       `
       // add to container
@@ -89,7 +89,46 @@ class View {
       option.classList.add('group-option')
       groupsSelector.appendChild(option)
     })
+  }
+  openProjectDisplay(project) {
+    const display = document.querySelector('.project-display-outter')
+    display.classList.add('show')
 
+    const title = display.querySelector('.project-display-title')
+    title.innerText = project.title
+
+    const description = display.querySelector('.project-display-description')
+    description.innerText = project.description
+
+    const image = display.querySelector('.project-display-image img')
+    image.src = project.cover
+
+    // tags
+    const tags = display.querySelector('.project-display-tags')
+    tags.innerHTML = ''
+    if (project.tags) {
+      project.tags.forEach(tag => {
+        const span = document.createElement('span')
+        span.innerText = tag.name
+        span.classList.add('project-display-tag')
+        tags.appendChild(span)
+      })
+    }
+
+    // meta (lines)
+    const meta = display.querySelector('.project-display-meta')
+    meta.innerHTML = ''
+    if (project.meta) {
+      project.meta.forEach(link => {
+        const p = document.createElement('p')
+        p.innerHTML = `${link.key}: <a target='_blank' href=${link.value}>${link.value}</a>`
+        meta.appendChild(p)
+      })
+    }
+  }
+  closeProjectDisplay() {
+    const display = document.querySelector('.project-display-outter')
+    display.classList.remove('show')
   }
 }
 
@@ -99,9 +138,23 @@ class Controller {
     this.view = view
   }
   async init() {
-    // Tag Selector
+    // Add Events
     document.querySelector('.group-select').addEventListener('change', (e) => this.OnTagSelectorChange(e))
 
+    // Close Project Display
+    const displayOutter = document.querySelector('.project-display-outter')
+    const display = document.querySelector('.project-display')
+
+    displayOutter.addEventListener('click', (e) => {
+      // check if click outside of display
+      if (!display.contains(e.target)) {
+        this.view.closeProjectDisplay()
+      }
+    })
+    const close = document.querySelector('.project-display-close')
+    close.addEventListener('click', () => {
+      this.view.closeProjectDisplay()
+    })
 
     // Render Project (Group = 'web')
     const projects = await this.data.getProjectAsync()
@@ -122,7 +175,23 @@ class Controller {
   async OnTagSelectorChange(e) {
     if (e) {
       const group = e.target.value
-      this.view.renderProjects(this.data.posts, group)
+      this.view.renderProjects(this.data.projects, group)
+
+      // add detail button event 
+      const detailButtons = document.querySelectorAll('.detail')
+      detailButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+          this.onOpenDisplayClick(e)
+        })
+      })
+
+      // add open display event
+      const projects = document.querySelectorAll('.project-card')
+      projects.forEach(p => {
+        p.addEventListener('click', (e) => {
+          this.onOpenDisplayClick(e)
+        })
+      })
     }
   }
   changeProjectGroup(group) {
@@ -133,6 +202,14 @@ class Controller {
     // trigger change event
     const event = new Event('change')
     groupSelect.dispatchEvent(event)
+  }
+  onOpenDisplayClick(e) {
+    // get project title
+    const projectTitle = e.target.getAttribute('data-title')
+    // find project
+    const project = this.data.projects.find(p => p.title === projectTitle)
+    // display project
+    this.view.openProjectDisplay(project)
   }
 }
 

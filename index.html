@@ -96,24 +96,37 @@
             <option class="group-option" value="Group3">Group3</option>
           </select>
         </div>
-        <div class="projects-container">
+        <!-- project display -->
+        <div class="project-display-outter">
           <div class="project-display">
-            <div class="'project-display-image"></div>
+            <div class="project-display-close">
+              <i class="fa-solid fa-x"></i>
+            </div>
+            <div class="project-display-image">
+              <img src="#" alt="project-cover" />
+            </div>
             <div class="project-display-info">
               <div class="project-display-title"></div>
+              <div class="project-display-tags"></div>
               <div class="project-display-description"></div>
+              <div class="project-display-meta"></div>
             </div>
           </div>
+        </div>
+        <!-- project container -->
+        <div class="projects-container">
           <!--projects 1-->
           <div class="project-card">
-            <div class="show-detail">Show Detail</div>
             <img
               class="project-image"
               src="https://placehold.co/200"
               alt="project image"
             />
-            <p class="project-name">Project 1</p>
-            <p class="project-info">A website created with React.</p>
+            <div class="project-info">
+              <p class="project-name">${project.title}</p>
+              <p class="project-description">${description}</p>
+              <button class="detail">Detail</button>
+            </div>
           </div>
           <!------>
         </div>

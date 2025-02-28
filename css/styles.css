@@ -97,7 +97,7 @@ header {
   background-color: var(--color-dark);
   color: white;
   text-align: center;
-  z-index: 10;
+  z-index: 100;
 }
 
 .github-icon {
@@ -153,6 +153,7 @@ header {
   border: none;
   border-radius: 5px;
   margin-left: 10px;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
@@ -240,6 +241,7 @@ header {
   padding: 5px;
   color: white;
   background-color: rgb(165, 165, 165);
+  text-transform: uppercase;
   cursor: pointer;
 }
 
@@ -249,6 +251,97 @@ header {
 
 .project-card .detail:hover {
   background-color: var(--color-primary);
+}
+
+/* project display */
+.project-display-outter {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.517);
+  z-index: 10;
+}
+.project-display-outter.show {
+  display: block;
+}
+.project-display {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+  width: 500px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.project-display-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 30px;
+  width: 30px;
+  color: white;
+  font-size: 1rem;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+.project-display-close:hover {
+  scale: 0.95;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.project-display-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+
+.project-display-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.project-display-image {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.project-display-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.project-display-tags {
+  display: flex;
+  gap: 5px;
+}
+
+.project-display-tag {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 0.85rem;
+  padding: 0px 5px;
+  border-radius: 3px;
+  text-transform: capitalize;
+}
+
+.project-display-meta p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* path section */
@@ -351,6 +444,7 @@ footer {
   font-size: 0.87rem;
   width: 100%;
   height: 80px;
+  z-index: 100;
 }
 
 /* Media Queries for Mobile Devices */
@@ -441,8 +535,8 @@ footer {
     width: 100%;
     height: 240px;
   }
-  
-  .detail{
+
+  .detail {
     visibility: hidden;
   }
 }

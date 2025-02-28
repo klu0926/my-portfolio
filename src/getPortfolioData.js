@@ -1,4 +1,4 @@
-const isLocal = window.location.hostname === 'localhost';
+const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
 const heroku = 'https://klu-portfolio-server-5858060573f4.herokuapp.com'
 const local = 'http://localhost:3000'
 
@@ -12,9 +12,12 @@ const url = isLocal ? local : heroku
 // {id, title, group, cover, data, description, order, meta[Array], createAt, tags[Array]
 // }
 
-export async function getPosts() {
+// dataName = posts or tags
+export async function getData(dataName) {
   try {
-    const response = await fetch(url + '/api/posts', {
+    const path = url + `/api/${dataName}`
+    console.log('path:', path)
+    const response = await fetch(path, {
       method: 'GET',
       headers: {
         'Conent-Type': 'application/json'

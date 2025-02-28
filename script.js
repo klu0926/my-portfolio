@@ -56,7 +56,6 @@ class View {
   }
 }
 
-
 class Controller {
   constructor(data, view) {
     this.data = data

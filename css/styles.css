@@ -5,7 +5,7 @@
   --color-line: rgb(228, 228, 228);
   --color-highlight: rgb(255, 214, 228);
   --color-dark: #333;
-  --max-width: 600px;
+  --max-width: 800px;
 }
 
 html {
@@ -133,13 +133,13 @@ header {
 .projects-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
+  gap: 35px;
 }
 
 .project-card {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 5px;
   text-align: center;
   overflow: hidden;
   cursor: pointer;
@@ -153,7 +153,6 @@ header {
 .project-name {
   padding: 0px 5px;
   font-size: 1rem;
-  text-transform: uppercase;
 }
 
 .project-info {
@@ -164,8 +163,9 @@ header {
 
 .project-image {
   width: 100%;
-  height: 160px;
+  height: 180px;
   object-fit: cover;
+  object-position: top;
   border-radius: 10px;
 }
 
@@ -309,7 +309,7 @@ footer {
     display: block;
   }
 
-  nav ul li{
+  nav ul li {
     padding: 0;
     margin: 0;
   }
@@ -341,10 +341,10 @@ footer {
 
   .projects-container {
     grid-template-columns: repeat(1, 1fr);
-    gap: 10px;
+    gap: 30px;
   }
 
   .project-image {
-    height: 200px;
+    height: 240px;
   }
 }

@@ -1,10 +1,12 @@
 :root {
-  --color-primary: rgb(255, 39, 129);
-  --color-link: rgb(255, 39, 129);
+  --color-primary: rgb(255, 54, 101);
+  --color-link: rgb(255, 13, 102);
   --color-link-hover: rgb(250, 79, 150);
-  --color-line: rgb(228, 228, 228);
-  --color-highlight: rgb(255, 214, 228);
-  --color-dark: #333;
+  --color-highlight: rgb(247, 25, 99);
+  --color-background: rgb(255, 255, 255);
+  --color-dark: #000000;
+  --color-text: rgb(34, 34, 34);
+  --color-line: rgb(82, 82, 82);
   --max-width: 800px;
 }
 
@@ -25,6 +27,7 @@ a {
 }
 
 a:hover {
+  color: var(--color-link);
   text-decoration: underline;
 }
 
@@ -51,6 +54,8 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
 }
 
 .burger-container {
@@ -151,51 +156,99 @@ header {
   cursor: pointer;
 }
 
+.group-select:focus {
+  outline: none;
+}
+
 .projects-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
 .project-card {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 5px;
+  flex-direction: row;
+  gap: 15px;
   text-align: center;
   overflow: hidden;
+  border: 2px solid white;
+  border: 2px solid var(--color-background);
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
 
 .project-card:hover {
-  transform: scale(1.05);
+}
+
+.project-card:hover .project-name {
+  color: var(--color-primary);
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0px 10px;
 }
 
 .project-name {
   padding: 0px 5px;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
-.project-info {
-  padding: 0px 5px;
+.project-description {
   font-size: 0.95rem;
   text-transform: capitalize;
   text-align: left;
 }
 
-.project-image {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 10px;
+.project-card:hover .project-description {
+  color: var(--color-primary);
 }
 
-.more-project-btn-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 30px;
+.project-image-div {
+  flex-shrink: 0;
+  width: 400px;
+  height: 200px;
+  overflow: hidden;
+  border: 2px solid rgb(78, 78, 78);
+  border-radius: 5px;
+}
+
+.project-card:hover .project-image-div {
+  border: 2px solid var(--color-primary);
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: 0.2s ease-in-out;
+}
+
+.project-card:hover .project-image {
+  scale: 1.03;
+}
+
+.detail {
+  outline: none;
+  border: none;
+  padding: 5px;
+  color: white;
+  background-color: rgb(165, 165, 165);
+  cursor: pointer;
+}
+
+.project-card:hover .detail {
+  background-color: rgb(196, 80, 99);
+}
+
+.project-card .detail:hover {
+  background-color: var(--color-primary);
 }
 
 /* path section */
@@ -226,7 +279,7 @@ span.hl {
   display: inline-block;
   padding: 0px 4px;
   border-radius: 3px;
-  background-color: var(--color-highlight);
+  color: var(--color-highlight);
 }
 
 /* button */
@@ -361,12 +414,35 @@ footer {
     padding-top: 60px;
   }
 
+  /* project */
   .projects-container {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 30px;
+    gap: 10px;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .project-card:hover {
+    transform: translateX(0);
+  }
+
+  .project-info {
+    gap: 5px;
+  }
+
+  .project-image-div {
+    width: 100%;
   }
 
   .project-image {
+    width: 100%;
     height: 240px;
+  }
+  
+  .detail{
+    visibility: hidden;
   }
 }

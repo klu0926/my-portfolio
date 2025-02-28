@@ -59,13 +59,19 @@ class View {
       // create porject card
       const projectCard = `
        <div class="project-card">
-            <img
+        <div class='project-image-div'>
+         <img
               class="project-image"
               src="${project.cover}"
               alt="project image"
             />
-            <p class="project-name">${project.title}</p>
-            <p class="project-info">${description}</p>
+        </div>
+            <div class='project-info'>
+              <p class="project-name">${project.title}</p>
+            <p class="project-description">${description}</p>
+            <button class='detail'>Detail</button>
+            </div>
+          
           </div>
       `
       // add to container
@@ -99,8 +105,10 @@ class Controller {
 
     // Render Project (Group = 'web')
     const projects = await this.data.getProjectAsync()
-    this.view.renderProjects(projects, '')
 
+    if (projects) {
+      this.view.renderProjects(projects, '')
+    }
 
     if (this.data.groups) {
       // Render porject group selector

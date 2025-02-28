@@ -130,6 +130,15 @@ class View {
     const display = document.querySelector('.project-display-outter')
     display.classList.remove('show')
   }
+  openBurgerMenu() {
+    const nav = document.querySelector('nav')
+    nav.classList.add('open')
+  }
+  closeBurgerMenu() {
+    const nav = document.querySelector('nav')
+    nav.classList.remove('open')
+
+  }
 }
 
 class Controller {
@@ -138,23 +147,8 @@ class Controller {
     this.view = view
   }
   async init() {
-    // Add Events
-    document.querySelector('.group-select').addEventListener('change', (e) => this.OnTagSelectorChange(e))
-
-    // Close Project Display
-    const displayOutter = document.querySelector('.project-display-outter')
-    const display = document.querySelector('.project-display')
-
-    displayOutter.addEventListener('click', (e) => {
-      // check if click outside of display
-      if (!display.contains(e.target)) {
-        this.view.closeProjectDisplay()
-      }
-    })
-    const close = document.querySelector('.project-display-close')
-    close.addEventListener('click', () => {
-      this.view.closeProjectDisplay()
-    })
+    // Event setup
+    this.eventSetup()
 
     // Render Project (Group = 'web')
     const projects = await this.data.getProjectAsync()
@@ -171,6 +165,46 @@ class Controller {
       this.changeProjectGroup('web')
     }
 
+  }
+  eventSetup() {
+    // burger menu event
+    document.addEventListener('click', (e) => {
+      // when burger menu is open, close it if click somewhere else
+      const nav = document.querySelector('.nav')
+      const burger = document.querySelector('.burger')
+      const isOpen = window.getComputedStyle(nav).display !== 'none'
+      if (!isOpen) return
+      if (e.target.contains(nav) || e.target.contains(burger)) return
+      // close
+      this.view.closeBurgerMenu()
+    })
+    document.querySelector('.burger-container').addEventListener('click', () => {
+      const nav = document.querySelector('.nav')
+      // check burger menu open
+      if (window.getComputedStyle(nav).display === 'none') {
+        this.view.openBurgerMenu()
+      } else {
+        this.view.closeBurgerMenu()
+      }
+    })
+
+    // Group select event
+    document.querySelector('.group-select').addEventListener('change', (e) => this.OnTagSelectorChange(e))
+
+    // Project Display events
+    const displayOutter = document.querySelector('.project-display-outter')
+    const display = document.querySelector('.project-display')
+
+    displayOutter.addEventListener('click', (e) => {
+      // check if click outside of display
+      if (!display.contains(e.target)) {
+        this.view.closeProjectDisplay()
+      }
+    })
+    const close = document.querySelector('.project-display-close')
+    close.addEventListener('click', () => {
+      this.view.closeProjectDisplay()
+    })
   }
   async OnTagSelectorChange(e) {
     if (e) {
@@ -211,6 +245,7 @@ class Controller {
     // display project
     this.view.openProjectDisplay(project)
   }
+
 }
 
 

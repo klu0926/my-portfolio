@@ -464,7 +464,7 @@ footer {
   /* nav element */
   nav {
     position: absolute;
-    display: flex;
+    display: none;
     flex-direction: column;
     top: 56px;
     right: 30px;
@@ -472,6 +472,9 @@ footer {
     text-align: start;
     border-top: 3px solid var(--color-primary);
     background-color: var(--color-dark);
+  }
+  nav.open{
+    display: flex;
   }
 
   .burger-container {
@@ -538,5 +541,10 @@ footer {
 
   .detail {
     visibility: hidden;
+  }
+
+  /* project display */
+  .project-display {
+    width: 95%;
   }
 }

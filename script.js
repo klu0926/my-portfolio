@@ -20,6 +20,10 @@ class View {
     this.projectContainer = document.querySelector('.projects-container')
   }
   renderProjects(projectsArray, filterGroup = '') {
+    if (!projectsArray) {
+      console.error('Fail to render project, no data')
+      return
+    }
     let filteredProjects = []
 
     // clear container

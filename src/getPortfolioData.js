@@ -1,4 +1,8 @@
+const isLocal = window.location.hostname === 'localhost';
 const heroku = 'https://klu-portfolio-server-5858060573f4.herokuapp.com'
+const local = 'http://localhost:3000'
+
+const url = isLocal ? local : heroku
 
 // POSTS : /api/posts
 // Tags : /api/tags
@@ -10,7 +14,7 @@ const heroku = 'https://klu-portfolio-server-5858060573f4.herokuapp.com'
 
 export async function getPosts() {
   try {
-    const response = await fetch(heroku + '/api/posts', {
+    const response = await fetch(url + '/api/posts', {
       method: 'GET',
       headers: {
         'Conent-Type': 'application/json'

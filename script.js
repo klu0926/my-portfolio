@@ -68,7 +68,7 @@ class View {
             />
         </div>
             <div class='project-info' data-title="${project.title}">
-              <p class="project-name" data-title="${project.title}">${project.title}</p>
+              <p class="project-title" data-title="${project.title}">${project.title}</p>
             <p class="project-description" data-title="${project.title}">${description}</p>
             <button class='detail' data-title='${project.title}'>Detail</button>
             </div>

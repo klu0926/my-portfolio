@@ -1,14 +1,31 @@
 :root {
   --color-primary: rgb(255, 255, 255);
-  --color-button-background: black;
-  --color-link: rgb(255, 13, 102);
-  --color-link-hover: rgb(250, 79, 150);
+  --color-link: rgb(34, 34, 34);
+  --color-link-hover: rgb(94, 94, 94);
   --color-highlight: rgb(222, 48, 48);
   --color-background: rgb(234, 57, 57);
+  --color-card-background: white;
   --color-dark: #c02a2a;
+  --color-hover: #ff7373;
+  --color-header: white;
   --color-text: rgb(255, 255, 255);
   --color-line: rgb(82, 82, 82);
   --max-width: 800px;
+}
+
+/* fonts */
+.archivo-normal {
+  font-family: 'Archivo', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+}
+
+.archivo-black-regular {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 html {
@@ -22,14 +39,27 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 a {
   color: var(--color-link);
-  text-decoration: none;
+  text-decoration: underline;
+  padding: 5px;
 }
 
 a:hover {
   color: var(--color-link);
   text-decoration: underline;
+  background-color: var(--color-hover);
 }
 
 h1 {
@@ -40,19 +70,23 @@ h2 {
   font-size: 1.5rem;
 }
 
-.logo {
-  cursor: pointer;
-  font-size: 1.6rem;
-  margin-left: 10px;
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-header);
+  font-weight: 400;
+  font-style: normal;
+  font-family: 'Archivo Black', sans-serif;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  color: var(--color-text);
-  background-color: var(--color-background);
+.logo {
+  cursor: pointer;
+  font-size: 1.4rem;
+  margin-left: 10px;
+  line-height: 30px;
+  padding: 5px;
+  font-family: 'Archivo Black', sans-serif;
 }
 
 .burger-container {
@@ -64,7 +98,7 @@ body {
 }
 
 .burger-container:hover {
-  background-color: rgb(88, 88, 88);
+  background-color: rgb(255, 79, 79);
 }
 
 .burger {
@@ -95,7 +129,6 @@ header {
   color: white;
   text-align: center;
   box-shadow: 0px 6px 10px 1px rgba(0, 0, 0, 0.5);
-
   z-index: 100;
 }
 
@@ -119,10 +152,6 @@ header {
   max-width: var(--max-width);
 }
 
-#about p {
-  margin-bottom: 15px;
-}
-
 .middle-container {
   display: flex;
   flex-direction: column;
@@ -133,12 +162,38 @@ header {
   max-width: var(--max-width);
 }
 
+/* about */
+
 .about-section {
   color: black;
-  background-color: white;
+  background-color: var(--color-card-background);
   box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.4);
-  padding: 15px;
-  border-radius: 10px;
+  padding: 20px;
+}
+
+.about-section h2 {
+  color: black;
+}
+
+.about-div {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+}
+
+.about-image-div {
+  overflow: hidden;
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about p {
+  margin-bottom: 15px;
 }
 
 /* projects */
@@ -150,16 +205,16 @@ header {
 }
 
 .group-select {
-  width: 100px;
-  text-align: center;
-  background-color: var(--color-button-background);
-  color: var(--color-primary);
-  font-size: 1rem;
   width: 150px;
   height: 35px;
-  border: none;
-  border-radius: 5px;
   margin-left: 10px;
+  color: white;
+  background-color: var(--color-dark);
+  font-size: 1rem;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
   cursor: pointer;
 }
@@ -179,32 +234,31 @@ header {
   display: flex;
   flex-direction: row;
   gap: 15px;
-  text-align: center;
+  text-align: left;
   overflow: hidden;
-  border: 2px solid white;
-  border: 2px solid var(--color-background);
+  padding: 15px;
+  color: black;
+  background-color: white;
+  box-shadow: 2px 4px 6px 2px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
 
 .project-card:hover {
-}
-
-.project-card:hover .project-name {
-  color: var(--color-primary);
+  scale: 1.02;
+  box-shadow: 2px 6px 10px 5px rgba(0, 0, 0, 0.4);
 }
 
 .project-info {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   padding: 0px 10px;
 }
 
 .project-name {
-  padding: 0px 5px;
   font-size: 1.1rem;
-  font-weight: bold;
+  font-family: 'Archivo Black', sans-serif;
 }
 
 .project-description {
@@ -213,51 +267,41 @@ header {
   text-align: left;
 }
 
-.project-card:hover .project-description {
-  color: var(--color-primary);
-}
-
 .project-image-div {
   flex-shrink: 0;
   width: 400px;
   height: 200px;
   overflow: hidden;
-  border: 2px solid rgb(78, 78, 78);
-  border-radius: 5px;
-}
-
-.project-card:hover .project-image-div {
-  border: 2px solid var(--color-primary);
 }
 
 .project-image {
-  width: 100%;
-  height: 100%;
+  width: 102%;
+  height: 102%;
   object-fit: cover;
-  object-position: top;
+  object-position: center;
   transition: 0.2s ease-in-out;
 }
 
 .project-card:hover .project-image {
-  scale: 1.03;
+  width: 100%;
+  height: 100%;
 }
 
 .detail {
   outline: none;
   border: none;
   padding: 5px;
+  margin-top: auto;
   color: white;
-  background-color: rgb(165, 165, 165);
+  background-color: black;
   text-transform: uppercase;
   cursor: pointer;
-}
-
-.project-card:hover .detail {
-  background-color: rgb(196, 80, 99);
+  transition: 0.1s ease-in-out;
 }
 
 .project-card .detail:hover {
-  background-color: var(--color-primary);
+  scale: 0.98;
+  background-color: rgb(61, 60, 60);
 }
 
 /* project display */
@@ -425,7 +469,6 @@ nav ul li a {
 section {
   position: relative;
   margin: 20px;
-  padding: 10px;
   padding-bottom: 50px;
   border-bottom: 1px solid var(--color-line);
 }
@@ -479,6 +522,7 @@ footer {
     text-align: start;
     border-top: 3px solid var(--color-primary);
     background-color: var(--color-dark);
+    box-shadow: 2px 2px 6px 2px rgb(0, 0, 0, 0.5);
   }
   nav.open {
     display: flex;
@@ -502,11 +546,7 @@ footer {
   }
 
   nav ul li a:hover {
-    background-color: rgb(79, 79, 79);
-  }
-
-  nav ul li a:hover {
-    text-decoration: none;
+    background-color: var(--color-hover);
   }
 
   section {

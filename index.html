@@ -77,12 +77,13 @@
           <div>
             <h2>About Me</h2>
             <p>
-              Hi, I’m Lu—A Former Unity Cinematic Designer Turned Web Developer.
-              Passionate about crafting immersive digital experiences, I blend
-              storytelling, design, and user interaction with technical
-              precision. Whether building cinematic game sequences or
-              interactive web applications, I thrive on creating engaging,
-              inspiring experiences.
+              Hi, I’m Lu—A Former
+              <span class="black-out">Unity Cinematic Designer</span> Turned Web
+              Developer. Passionate about crafting immersive digital
+              experiences, I blend storytelling, design, and user interaction
+              with technical precision. Whether building cinematic game
+              sequences or interactive web applications, I thrive on creating
+              engaging, inspiring experiences.
             </p>
           </div>
           <div class="about-image-div">
@@ -126,17 +127,36 @@
         </div>
         <!-- project container -->
         <div class="projects-container">
-          <!--projects 1-->
+          <!--skeleton project-->
           <div class="project-card">
-            <img
-              class="project-image"
-              src="https://placehold.co/200"
-              alt="project image"
-            />
+            <div
+              class="project-image-div skeleton-bg"
+              data-title="${project.title}"
+            ></div>
             <div class="project-info">
-              <p class="project-title">project title</p>
-              <p class="project-description">${description}</p>
-              <button class="detail">Detail</button>
+              <p class="project-title skeleton-text"></p>
+              <div>
+                <p class="skeleton-description"></p>
+                <p class="skeleton-description"></p>
+                <p class="skeleton-description"></p>
+              </div>
+              <button class="detail skeleton-bg"></button>
+            </div>
+          </div>
+          <!------>
+          <div class="project-card">
+            <div
+              class="project-image-div skeleton-bg"
+              data-title="${project.title}"
+            ></div>
+            <div class="project-info">
+              <p class="project-title skeleton-text"></p>
+              <div>
+                <p class="skeleton-description"></p>
+                <p class="skeleton-description"></p>
+                <p class="skeleton-description"></p>
+              </div>
+              <button class="detail skeleton-bg"></button>
             </div>
           </div>
           <!------>
@@ -198,7 +218,7 @@
           <div class="path-div">
             <p class="path-time">2024</p>
             <p class="path-info">
-              Started studying Computer Programming at Humber College.
+              Studying Computer Programming at Humber College.
             </p>
           </div>
           <!---->

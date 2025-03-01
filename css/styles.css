@@ -314,7 +314,7 @@ header {
   margin-right: auto;
   margin-top: 100px;
   width: 600px;
-  height: 1000px;
+  height: 2000px;
   background-color: white;
   box-shadow: 4px 4px 7px 4px rgba(0, 0, 0, 0.5);
   animation: project-display 0.35s ease-in-out;
@@ -348,8 +348,6 @@ header {
   width: 100%;
   gap: 10px;
   padding: 20px;
-  overflow-y: scroll;
-  scroll-behavior: auto;
   color: black;
 }
 

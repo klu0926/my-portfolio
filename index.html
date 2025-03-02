@@ -4,11 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--google font-->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
     <!--my css-->
     <link rel="stylesheet" href="css/styles.css" />
+    <!--typed animation js-->
+    <script
+      src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"
+      defer
+    ></script>
+    <!--my js-->
     <script type="module" src="./script.js" defer></script>
     <!--font awesome-->
     <link
@@ -67,11 +76,15 @@
     </header>
     <!---main container-->
     <div class="middle-container">
+      <!--welcome message (typed js)-->
+      <section class="welcome">
+        <span id="welcome-message"></span>
+      </section>
       <!-- About Section -->
       <section id="about" class="about-section">
         <div class="anchor" id="ac-about"></div>
         <div class="about-div">
-          <div>
+          <div class="about-div-left">
             <h2>
               About Me
               <i class="fa-regular fa-circle-user"></i>

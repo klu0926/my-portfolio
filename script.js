@@ -1,4 +1,5 @@
 import { getData } from "./src/getPortfolioData.js"
+import { typed } from "./src/typed.js"
 
 class Data {
   constructor() {

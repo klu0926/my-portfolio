@@ -366,7 +366,7 @@ a:hover .github-icon {
   scale: 0.95;
   color: white;
   border: 2px solid var(--color-secondary-hover);
-  background-color: var(--color-secondary-hover);
+  background-color: rgb(255, 234, 234);
 }
 
 .project-display-image {
@@ -502,18 +502,34 @@ section h2 {
   margin-bottom: 10px;
 }
 
+/* header icon */
+section i {
+  color: var(--color-secondary);
+  font-weight: normal;
+}
+
 footer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 80px;
+  height: 140px;
   padding: 10px;
   background-color: var(--color-dark);
   color: white;
   text-align: center;
   font-size: 0.87rem;
   z-index: 8;
+}
+
+footer a {
+  color: var(--color-secondary-hover);
+}
+
+footer a:hover {
+  color: var(--color-secondary-hover);
+  background-color: rgb(85, 85, 85);
 }
 
 @keyframes project-display {

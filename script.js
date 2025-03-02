@@ -54,8 +54,13 @@ class View {
     // Render project cards
     filteredProjects.forEach(project => {
       // shorten description
-      // const description = project.description.slice(0, 200) + '...'
-      const description = project.description
+      const stringLength = 120;
+      let description = ''
+      if (project.description.length > stringLength) {
+        description = project.description.slice(0, stringLength) + '...'
+      } else {
+        description = project.description
+      }
 
       // create porject card
       const projectCard = `
@@ -79,17 +84,26 @@ class View {
       this.projectContainer.innerHTML += projectCard
     })
   }
-  renderGroupsSelector(groupsArray) {
+  renderGroupsSelector(groupsArray, projects) {
     const groupsSelector = document.querySelector('.group-select')
     groupsSelector.innerHTML = ''
 
+    // add "All" group
+    const option = document.createElement('option')
+    option.value = ''
+    option.innerText = `All (${projects.length})`
+    option.classList.add('group-option')
+    groupsSelector.appendChild(option)
+
+    // add each group
     groupsArray.forEach(group => {
       const option = document.createElement('option')
       option.value = group
-      option.innerText = group
+      option.innerText = `${group} (${projects.filter(p => p.group === group).length})`
       option.classList.add('group-option')
       groupsSelector.appendChild(option)
     })
+
   }
   openProjectDisplay(project) {
     const display = document.querySelector('.project-display-outter')
@@ -161,7 +175,7 @@ class Controller {
 
     if (this.data.groups) {
       // Render porject group selector
-      this.view.renderGroupsSelector(this.data.groups)
+      this.view.renderGroupsSelector(this.data.groups, this.data.projects)
 
       // Select 'web' group
       this.changeProjectGroup('web')

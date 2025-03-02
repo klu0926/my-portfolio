@@ -166,8 +166,8 @@ a:hover .github-icon {
 }
 
 /* welcome */
-.welcome{
-  
+.welcome {
+  text-align: center;
 }
 
 #welcome-message {
@@ -215,7 +215,7 @@ a:hover .github-icon {
   gap: 10px;
 }
 
-.about-div-left{
+.about-div-left {
   display: flex;
   flex-direction: column;
   justify-content: center;

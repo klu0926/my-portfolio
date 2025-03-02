@@ -42,13 +42,19 @@ body {
   padding: 0;
   line-height: 1.6;
   color: var(--color-text);
-  background-color: var(--color-primary);
+  /* background-color: var(--color-primary); */
+
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary),
+    var(--color-dark)
+  );
   font-family: 'Open Sans', sans-serif;
   font-weight: 450;
 }
 
 a {
-  color: var(--color-dark);
+  color: var(--color-secondary);
   text-decoration: underline;
   padding: 5px;
 }
@@ -125,6 +131,10 @@ header {
   text-align: center;
   box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.5);
   z-index: 100;
+}
+
+.nav {
+  background-color: var(--color-secondary);
 }
 
 .nav a {
@@ -261,6 +271,7 @@ a:hover .github-icon {
 }
 
 .project-card:hover {
+  scale: 1.01;
   transform: translateX(5px);
 }
 
@@ -298,7 +309,7 @@ a:hover .github-icon {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: center top;
   transition: 0.2s ease-in-out;
 }
 
@@ -336,14 +347,15 @@ a:hover .github-icon {
 .project-display {
   position: relative;
   top: 100px;
-  margin-left: auto;
-  margin-right: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
   max-width: 560px;
   border-radius: 5px;
-  background-color: #00000000;
   overflow: hidden;
   box-shadow: 4px 4px 7px 4px rgba(0, 0, 0, 0.5);
-  /* animation: project-display 0.35s ease-in-out; */
+  animation: project-display 0.3s ease-in-out;
 }
 
 .project-display .project-display-close {
@@ -371,15 +383,16 @@ a:hover .github-icon {
 
 .project-display-image {
   width: 100%;
-  height: 200px;
+  height: 260px;
   overflow: hidden;
   padding: 0;
+  background-color: green;
 }
 
 .project-display-image img {
+  height: 100%;
   width: 100%;
   object-fit: cover;
-  object-position: top;
 }
 
 .project-display-info {
@@ -388,17 +401,17 @@ a:hover .github-icon {
   flex-direction: column;
   width: 100%;
   color: black;
-  background-color: #00000000;
 }
 
 .project-display-top {
   padding: 10px 15px;
-  background-color: white;
+  background-color: var(--color-secondary);
 }
 
 .project-display-title {
   font-weight: 700;
   font-size: 1.2rem;
+  color: white;
 }
 
 .project-display-tags {
@@ -417,25 +430,37 @@ a:hover .github-icon {
   text-transform: capitalize;
 }
 
+.project-display-mid {
+  padding: 20px 15px;
+  color: white;
+  background-color: var(--color-primary);
+}
+
 .project-display-meta {
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 .project-display-meta p {
-  color: var(--color-dark);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: white;
+  margin-bottom: 5px;
+  color: var(--color-secondary-hover);
+}
+
+.project-display-meta p .meta {
+  text-decoration: underline;
+  color: white;
 }
 
 .project-display-meta p a {
   color: var(--color-secondary-hover);
 }
 
-.project-display-mid {
-  padding: 15px;
-  padding-bottom: 30px;
-  background-color: rgba(255, 255, 255);
+.project-display-meta p a:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-dark);
 }
 
 /* path section */
@@ -534,21 +559,42 @@ footer a:hover {
 
 @keyframes project-display {
   0% {
-    margin-top: 1000px;
+    top: 350px;
+    opacity: 0;
   }
   100% {
-    margin-top: 100px;
+    top: 100px;
+    opacity: 1;
+  }
+}
+
+@keyframes mobile-nav {
+  0% {
+    top: -40px;
+    transform: scaleY(0.2);
+  }
+  65% {
+    top: 72px;
+    transform: scaleY(1.02);
+  }
+  80% {
+    top: 62px;
+    transform: scaleY(0.98);
+  }
+  100% {
+    top: 65px;
+    transform: scaleY(1);
   }
 }
 
 /* skeleton */
 .skeleton-bg {
-  background-color: rgb(60, 60, 60);
+  background-color: hsl(0, 0%, 64%);
 }
 
 .skeleton-bg {
   min-height: 20px;
-  background-color: rgb(60, 60, 60);
+  background-color: hsl(0, 0%, 64%);
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
@@ -556,7 +602,7 @@ footer a:hover {
   display: inline-block;
   height: 20px;
   width: 100%;
-  background-color: rgb(40, 40, 40);
+  background-color: hsl(0, 0%, 64%);
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
@@ -568,16 +614,16 @@ footer a:hover {
   display: inline-block;
   height: 20px;
   width: 40%;
-  background-color: rgb(40, 40, 40);
+  background-color: hsl(0, 0%, 64%);
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
 @keyframes skeleton-loading {
   0% {
-    background-color: hsl(0, 0%, 33%);
+    background-color: hsl(0, 0%, 64%);
   }
   100% {
-    background-color: hsl(180, 1%, 17%);
+    background-color: hsl(0, 0%, 44%);
   }
 }
 
@@ -600,13 +646,14 @@ footer a:hover {
     position: absolute;
     display: none;
     flex-direction: column;
-    top: 68px;
-    right: 30px;
+    top: 65px;
+    right: 25px;
     padding: 0px;
     text-align: start;
     border: 2px solid var(--color-primary);
     background-color: var(--color-dark);
     box-shadow: 2px 2px 6px 2px rgb(0, 0, 0, 0.5);
+    animation: mobile-nav 0.3s ease-in-out;
   }
   nav.open {
     display: flex;
@@ -629,6 +676,7 @@ footer a:hover {
     cursor: pointer;
     color: white;
     background-color: var(--color-secondary);
+    user-select: none;
   }
 
   .nav a:hover {
@@ -667,10 +715,6 @@ footer a:hover {
     padding: 5px;
   }
 
-  .project-card:hover {
-    transform: translateX(0);
-  }
-
   .project-info {
     gap: 5px;
     padding: 15px 10px;
@@ -686,11 +730,12 @@ footer a:hover {
 
   .project-image-div {
     width: 100%;
-    height: 200px;
+    max-height: 200px;
   }
 
   .project-image {
     width: 100%;
+    height: 100%;
   }
 
   .detail {
@@ -704,25 +749,34 @@ footer a:hover {
   }
 
   .project-display-top {
-    padding: 10px 15px;
-    box-shadow: 0px 7px 15px 2px rgba(0, 0, 0, 0.2);
+    padding: 15px 15px;
+    box-shadow: 0px 6px 10px 1px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+  }
+
+  .project-display-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
   }
 
   .project-display-mid {
     max-height: 30vh;
+    font-size: 0.9rem;
     overflow-y: scroll;
+    z-index: 4;
   }
 
   .project-display-mid::-webkit-scrollbar {
-    width: 10px;
+    width: 12px;
   }
 
   .project-display-mid::-webkit-scrollbar-thumb {
-    background: var(--color-secondary);
+    background: white;
     border-radius: 5px;
   }
 
   .project-display-mid::-webkit-scrollbar-track {
-    background: rgb(230, 230, 230);
+    background: rgb(70, 70, 70);
   }
 }

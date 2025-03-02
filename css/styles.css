@@ -1,15 +1,18 @@
 :root {
-  --color-primary: rgb(255, 255, 255);
-  --color-link: #ff7373;
-  --color-link-hover: #f89494;
-  --color-highlight: rgb(222, 48, 48);
-  --color-background: rgb(38, 38, 38);
+  /* main */
+  --color-dark: #140e3c;
+  --color-primary: #172349;
+  --color-primary-hover: #424f7b;
+  --color-secondary: rgb(198, 63, 63);
+  --color-secondary-hover: #e06767;
+
+  /* other */
   --color-card-background: white;
-  --color-dark: #000000;
-  --color-hover: #4c4b4b;
+  --color-line: rgb(253, 125, 125);
+  /* text */
   --color-header: white;
   --color-text: rgb(255, 255, 255);
-  --color-line: rgb(82, 82, 82);
+  /* size */
   --max-width: 800px;
 }
 
@@ -39,21 +42,21 @@ body {
   padding: 0;
   line-height: 1.6;
   color: var(--color-text);
-  background-color: var(--color-background);
+  background-color: var(--color-primary);
   font-family: 'Open Sans', sans-serif;
   font-weight: 450;
 }
 
 a {
-  color: var(--color-link);
+  color: var(--color-secondary);
   text-decoration: underline;
   padding: 5px;
 }
 
 a:hover {
-  color: var(--color-link);
   text-decoration: underline;
-  background-color: var(--color-hover);
+  color: var(--color-secondary-hover);
+  background-color: var(--color-primary-hover);
 }
 
 h1 {
@@ -68,7 +71,6 @@ h1,
 h2,
 h3,
 h4 {
-  color: var(--color-header);
   font-weight: 700;
   font-family: 'Open Sans', sans-serif;
 }
@@ -91,7 +93,7 @@ h4 {
 }
 
 .burger-container:hover {
-  background-color: rgb(255, 79, 79);
+  background-color: var(--color-secondary-hover);
 }
 
 .burger {
@@ -118,21 +120,25 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  background-color: var(--color-dark);
+  background-color: var(--color-secondary);
   color: white;
   text-align: center;
-  box-shadow: 0px 6px 15px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.5);
   z-index: 100;
+}
+
+.nav a {
+  color: white;
+  background-color: var(--color-secondary);
+}
+
+.nav a:hover {
+  background-color: var(--color-secondary-hover);
 }
 
 .github-icon {
   color: white;
   transition: 0.2s ease-in-out;
-}
-
-.github-icon:hover {
-  transform: scale(1.05);
-  color: var(--color-primary);
 }
 
 .top-container {
@@ -174,7 +180,7 @@ header {
 
 .about-image-div {
   overflow: hidden;
-  box-shadow: 4px 4px 6px 2px rgba(0, 0, 0, 0.7);
+  box-shadow: 4px 4px 6px 2px rgba(0, 0, 0, 0.4);
 }
 
 .about-image {
@@ -196,6 +202,11 @@ header {
   padding: 20px 0px;
 }
 
+.group-select-div {
+  position: relative;
+  margin-bottom: 10px;
+}
+
 .group-select {
   width: 150px;
   height: 35px;
@@ -204,20 +215,28 @@ header {
   text-align: center;
   border: 2px solid white;
   color: white;
-  background-color: var(--color-dark);
-  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.7);
+  background-color: var(--color-secondary);
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.4);
   text-transform: uppercase;
   cursor: pointer;
 }
 
 .group-select:hover {
-  background-color: var(--color-background);
+  background-color: var(--color-secondary-hover);
 }
 
 .group-select:focus {
   outline: none;
 }
 
+.group-select-arrow {
+  position: absolute;
+  top: 120%;
+  right: 45%;
+  color: var(--color-secondary);
+}
+
+/* projects  */
 .projects-container {
   display: flex;
   flex-direction: column;
@@ -234,7 +253,7 @@ header {
   padding: 15px;
   color: black;
   background-color: white;
-  box-shadow: 4px 4px 6px 2px rgba(0, 0, 0, 0.9);
+  box-shadow: 4px 4px 6px 2px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
@@ -283,7 +302,7 @@ header {
   padding: 5px;
   margin-top: auto;
   color: white;
-  background-color: black;
+  background-color: var(--color-secondary);
   text-transform: uppercase;
   cursor: pointer;
   transition: 0.1s ease-in-out;
@@ -291,7 +310,7 @@ header {
 
 .project-card .detail:hover {
   scale: 0.98;
-  background-color: rgb(61, 60, 60);
+  background-color: var(--color-secondary-hover);
 }
 
 /* project display */
@@ -380,7 +399,7 @@ header {
 
 .project-display-tag {
   display: inline-block;
-  background-color: var(--color-hover);
+  background-color: var(--color-secondary-hover);
   color: white;
   font-size: 0.85rem;
   padding: 0px 5px;
@@ -409,52 +428,11 @@ header {
 }
 
 .path-div:hover {
-  color: var(--color-primary);
   transform: translateX(4px);
 }
 
 .path-time {
   font-weight: bold;
-}
-
-/* hightlight */
-span.hl {
-  display: inline-block;
-  padding: 0px 4px;
-  border-radius: 3px;
-  color: var(--color-highlight);
-}
-
-/* blackout */
-span.black-out {
-  display: inline-block;
-  padding: 0px 4px;
-  border-radius: 3px;
-  color: black !important;
-  background-color: black;
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
-}
-span.black-out:hover {
-  background-color: var(--color-dark);
-  color: var(--color-link) !important;
-}
-
-/* button */
-.link-btn {
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: var(--color-link);
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.link-btn:hover {
-  background-color: var(--color-link-hover);
-  scale: 0.98;
 }
 
 /* anchor */
@@ -488,7 +466,7 @@ section {
   position: relative;
   margin-bottom: 10px;
   padding-bottom: 50px;
-  border-bottom: 1px dashed var(--color-line);
+  border-bottom: 1px dashed var(--color-secondary);
 }
 
 section.no-border {
@@ -602,16 +580,18 @@ footer {
     margin: 0;
   }
 
-  nav ul li a {
+  .nav a {
     margin: 0;
     width: 100%;
     display: block;
     padding: 10px 80px 10px 20px;
     cursor: pointer;
+    color: white;
+    background-color: var(--color-secondary);
   }
 
-  nav ul li a:hover {
-    background-color: var(--color-hover);
+  .nav a:hover {
+    background-color: var(--color-secondary-hover);
   }
 
   section {

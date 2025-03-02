@@ -54,7 +54,8 @@ class View {
     // Render project cards
     filteredProjects.forEach(project => {
       // shorten description
-      const description = project.description.slice(0, 100) + '...'
+      // const description = project.description.slice(0, 200) + '...'
+      const description = project.description
 
       // create porject card
       const projectCard = `

@@ -1,8 +1,8 @@
 :root {
   /* main */
-  --color-dark: #140e3c;
-  --color-primary: #172349;
-  --color-primary-hover: #424f7b;
+  --color-dark: #000000;
+  --color-primary: #1e1e1e;
+  --color-primary-hover: #3a3a3a;
   --color-secondary: rgb(198, 63, 63);
   --color-secondary-hover: #e06767;
 
@@ -13,7 +13,7 @@
   --color-header: white;
   --color-text: rgb(255, 255, 255);
   /* size */
-  --max-width: 800px;
+  --max-width: 1000px;
 }
 
 /* fonts */
@@ -238,19 +238,19 @@ header {
 
 /* projects  */
 .projects-container {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
 }
 
 .project-card {
   position: relative;
   display: flex;
-  flex-direction: row;
-  gap: 20px;
+  flex-direction: column;
+  gap: 10px;
   text-align: left;
   overflow: hidden;
-  padding: 15px;
+  padding: 10px;
   color: black;
   background-color: white;
   box-shadow: 4px 4px 6px 2px rgba(0, 0, 0, 0.4);
@@ -264,6 +264,7 @@ header {
 }
 
 .project-info {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -283,7 +284,7 @@ header {
 
 .project-image-div {
   flex-shrink: 0;
-  width: 400px;
+  width: 100%;
   height: 200px;
   overflow: hidden;
 }
@@ -368,6 +369,7 @@ header {
   gap: 10px;
   padding: 20px;
   color: black;
+  overflow: scroll;
 }
 
 .project-display-info a:hover {
@@ -614,6 +616,8 @@ footer {
 
   /* project */
   .projects-container {
+    display: flex;
+    flex-direction: column;
     gap: 25px;
   }
 
@@ -643,7 +647,7 @@ footer {
 
   .project-image-div {
     width: 100%;
-    height: 150px;
+    height: 200px;
   }
 
   .project-image {

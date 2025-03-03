@@ -452,7 +452,7 @@ a:hover .github-icon {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  object-position: left top;
+  object-position: center top;
 }
 
 .project-display-info {

@@ -156,6 +156,17 @@ class View {
     nav.classList.remove('open')
 
   }
+  displayFlashMessage(message, timer = 3000) {
+    const flash = document.querySelector('#flash')
+    flash.innerText = message
+    flash.classList.remove('out')
+    flash.classList.add('in')
+
+    setTimeout(() => {
+      flash.classList.remove('in')
+      flash.classList.add('out')
+    }, (timer));
+  }
 }
 
 class Controller {
@@ -222,6 +233,12 @@ class Controller {
     close.addEventListener('click', () => {
       this.view.closeProjectDisplay()
     })
+
+    // Contact Form events
+    const contact = document.querySelector('#contact-form')
+    contact.addEventListener('submit', (e) => {
+      this.onFromSubmit(e)
+    })
   }
   async OnTagSelectorChange(e) {
     if (e) {
@@ -262,7 +279,109 @@ class Controller {
     // display project
     this.view.openProjectDisplay(project)
   }
+  async onFromSubmit(e) {
+    const form = document.querySelector('#contact-form')
 
+    try {
+      // prevent form to submit
+      e.preventDefault()
+
+      // check validation
+      const isValided = this.checkFormValidation()
+      if (!isValided) return
+
+      // Convert from data to json
+      const formData = new FormData(form)
+      const object = Object.fromEntries(formData)
+      const json = JSON.stringify(object)
+
+      // Disabled submit button
+      const submit = document.querySelector('.submit')
+      console.log('submit', submit)
+      submit.classList.remove('ready')
+      submit.disabled = true
+      submit.innerText = 'Sending...'
+
+      // Send from
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      })
+      if (!response.ok) throw new Error(response.status)
+
+      // complete
+      this.view.displayFlashMessage('Message Sent!')
+
+    } catch (err) {
+      console.error(err.message)
+      this.view.displayFlashMessage('Something went wrong')
+    } finally {
+      submit.classList.add('ready')
+      submit.disabled = false
+      submit.innerText = 'Submit'
+      form.reset()
+    }
+  }
+
+  checkFormValidation(e) {
+    // inputs
+    const nameInput = document.querySelector('#name')
+    const emailInput = document.querySelector('#email')
+    const messageInput = document.querySelector("#message")
+
+    // validations
+    const nameValidation = document.querySelector('#name-validation')
+    const emailValidation = document.querySelector('#email-validation')
+    const messageValidation = document.querySelector('#message-validation')
+    const validationSpans = [nameValidation, emailValidation, messageValidation]
+    validationSpans.forEach(v => v.classList.remove('active'))
+
+    // check input validation
+    let validatedCount = 0;
+    const validities = [
+      nameInput.validity,
+      emailInput.validity,
+      messageInput.validity
+    ]
+
+    for (let i = 0; i < validities.length; i++) {
+      if (validities[i].valid) {
+        validatedCount += 1
+        continue
+      }
+      // check 
+      if (validities[i].valueMissing) {
+        validationSpans[i].innerText = 'Required'
+      } else if (validities[i].typeMismatch) {
+        // mismatch
+        if (validationSpans[i].id === 'email-validation') {
+          validationSpans[i].innerText = 'Please enter valide email'
+        }
+        else {
+          validationSpans[i].innerText = 'Please enter valide info'
+        }
+      } else if (validities[i].tooShort) {
+        validationSpans[i].innerText = 'Minimum 10 characters'
+      } else {
+        validationSpans[i].innerText = 'Invalide Input'
+      }
+      // show
+      validationSpans[i].classList.add('active')
+    }
+
+    // for testing
+    console.log(validities)
+
+    if (validatedCount === validities.length) {
+      return true
+    } else {
+      return false
+    }
+  }
 }
 
 
@@ -272,6 +391,5 @@ const view = new View()
 const controller = new Controller(data, view)
 
 document.addEventListener('DOMContentLoaded', () => {
-
   controller.init()
 })

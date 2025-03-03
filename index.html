@@ -49,6 +49,10 @@
     <title>Kuo Yu Lu</title>
   </head>
   <body>
+    <!--flash message-->
+    <div class="flash-div">
+      <div id="flash" class="flash">Flash message here!</div>
+    </div>
     <!-- Header Section -->
     <header>
       <div class="top-container">
@@ -259,15 +263,18 @@
           Contact Me
           <i class="fa-regular fa-envelope"></i>
         </h2>
-        <!-- contact form -->
+        <!-- contact form idv -->
         <div class="contact-message-div">
+          <!-- message (typed.js)) -->
           <span class="contact-message" id="contact-message"></span>
         </div>
-
+        <!-- contact form -->
         <form
+          id="contact-form"
           class="contact-form"
           action="https://api.web3forms.com/submit"
           method="POST"
+          novalidate
         >
           <input
             type="hidden"
@@ -294,13 +301,20 @@
               type="email"
               name="email"
               placeholder="Your Email"
+              required
             />
             <span id="email-validation" class="validation">Validation</span>
           </div>
           <!-- message -->
           <div class="input-div">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              minlength="10"
+              required
+            ></textarea>
             <span id="message-validation" class="validation">Validation</span>
           </div>
           <!-- redirect web3forms -->
@@ -310,7 +324,7 @@
             value="https://web3forms.com/success"
           />
           <!-- submit -->
-          <button class="submit" type="submit">Submit</button>
+          <button id="submit" class="submit ready" type="submit">Submit</button>
         </form>
       </section>
     </div>

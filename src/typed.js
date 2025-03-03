@@ -21,5 +21,3 @@ export const contactTyped = new Typed('#contact-message', {
   backDelay: 5000,
   loop: true,
 });
-
-console.log('typed imported')

@@ -259,11 +259,59 @@
           Contact Me
           <i class="fa-regular fa-envelope"></i>
         </h2>
-        <p>
-          Have a question or a project in mind? Reach out at
-          <a href="mailto:lukuoyu@gmail.com">lukuoyu@gmail.com</a>—let’s create
-          something great!
-        </p>
+        <!-- contact form -->
+        <div class="contact-message-div">
+          <span class="contact-message" id="contact-message"></span>
+        </div>
+
+        <form
+          class="contact-form"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="access_key"
+            value="f308f30c-5908-484f-bd2b-b93123ed0b93"
+          />
+          <!-- name -->
+          <div class="input-div">
+            <label for="name">Name</label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Your name"
+              required
+            />
+            <span id="name-validation" class="validation">Validation</span>
+          </div>
+          <!-- email -->
+          <div class="input-div">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Your Email"
+            />
+            <span id="email-validation" class="validation">Validation</span>
+          </div>
+          <!-- message -->
+          <div class="input-div">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+            <span id="message-validation" class="validation">Validation</span>
+          </div>
+          <!-- redirect web3forms -->
+          <input
+            type="hidden"
+            name="redirect"
+            value="https://web3forms.com/success"
+          />
+          <!-- submit -->
+          <button class="submit" type="submit">Submit</button>
+        </form>
       </section>
     </div>
     <!-- Footer Section -->

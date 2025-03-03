@@ -52,8 +52,6 @@ body {
   padding: 0;
   line-height: 1.6;
   color: var(--color-text);
-  /* background-color: var(--color-primary); */
-
   background: linear-gradient(
     to bottom,
     var(--color-primary),
@@ -197,7 +195,7 @@ a:hover .github-icon {
   padding-top: 100px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 100px;
+  padding-bottom: 40px;
   max-width: var(--max-width);
 }
 
@@ -632,6 +630,67 @@ footer {
   z-index: 8;
 }
 
+/* contact */
+.contact-message-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  color: var(--color-secondary-hover);
+}
+
+.contact-message-div .typed-cursor {
+  font-size: 1rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid var(--color-primary);
+  padding: 20px 15px;
+}
+
+.input-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form input {
+  font-size: 1rem;
+  padding: 10px 5px;
+}
+
+.validation {
+  width: auto;
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--color-secondary-hover);
+}
+
+.contact-form .submit {
+  outline: none;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: white;
+  text-transform: uppercase;
+  background-color: var(--color-secondary);
+  cursor: pointer;
+}
+
+.contact-form .submit:hover {
+  scale: 0.96;
+  background-color: var(--color-secondary-hover);
+}
+
+/* footer */
+footer {
+  position: relative;
+}
+
 footer a {
   color: var(--color-secondary-hover);
 }
@@ -741,12 +800,11 @@ footer a:hover {
   }
 
   /* welcome */
-
   #welcome-message {
     font-size: 2rem;
   }
 
-  .typed-cursor {
+  .welcome .typed-cursor {
     font-size: 2rem;
   }
 

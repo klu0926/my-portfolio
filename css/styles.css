@@ -416,7 +416,7 @@ a:hover .github-icon {
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 4px 4px 7px 4px rgba(0, 0, 0, 0.5);
-  animation: project-display 0.3s ease-in-out;
+  animation: project-display 0.45s ease-in-out;
 }
 
 .project-display .project-display-close {
@@ -454,6 +454,7 @@ a:hover .github-icon {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  object-position: left top;
 }
 
 .project-display-info {
@@ -642,8 +643,14 @@ footer a:hover {
 
 @keyframes project-display {
   0% {
-    top: 350px;
+    top: 300px;
     opacity: 0;
+  }
+  60% {
+    top: 95px;
+  }
+  80% {
+    top: 101px;
   }
   100% {
     top: 100px;
@@ -731,6 +738,16 @@ footer a:hover {
 
   .logo {
     font-size: 1.4rem;
+  }
+
+  /* welcome */
+
+  #welcome-message {
+    font-size: 2rem;
+  }
+
+  .typed-cursor {
+    font-size: 2rem;
   }
 
   /* nav element */

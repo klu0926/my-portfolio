@@ -1,23 +1,56 @@
-html {
-    scroll-behavior: smooth;
-}
-
 :root {
-  /* main */
+  /* default mode (dark mode) */
+  --color-background-top: #882727;
+  --color-background-bottom: black;
+  --color-footer: black;
+  --color-footer-hover: rgb(59, 59, 59);
+
   --color-dark: #000000;
   --color-primary: #882727;
   --color-primary-hover: #674a4a;
   --color-secondary: rgb(198, 63, 63);
   --color-secondary-hover: #e06767;
 
-  /* other */
   --color-card-background: white;
   --color-line: rgb(253, 125, 125);
-  /* text */
   --color-header: white;
   --color-text: rgb(255, 255, 255);
-  /* size */
+  --color-nav-a: white;
+  --color-nav-a-hover: rgb(255, 255, 255);
+
   --max-width: 900px;
+}
+
+/* light mode */
+[data-theme='light'] {
+  --color-background-top: white;
+  --color-background-bottom: white;
+  --color-footer: #882727;
+  --color-footer-hover: #ae4d4d;
+
+  --color-dark: #000000;
+  --color-primary: #882727;
+  --color-primary-hover: #674a4a;
+  --color-secondary: rgb(198, 63, 63);
+  --color-secondary-hover: #e06767;
+
+  --color-card-background: #ffffff;
+  --color-line: rgb(253, 125, 125);
+  --color-header: #000000;
+  --color-text: #000000;
+  --color-nav-a: white;
+  --color-nav-a-hover: rgb(255, 255, 255);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-background-bottom);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* fonts */
@@ -40,17 +73,6 @@ html {
 }
 
 /* General Styles */
-html {
-  scroll-behavior: smooth;
-  background-color: var(--color-dark);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -58,8 +80,8 @@ body {
   color: var(--color-text);
   background: linear-gradient(
     to bottom,
-    var(--color-primary),
-    var(--color-dark)
+    var(--color-background-top),
+    var(--color-background-bottom)
   );
   font-family: 'Open Sans', sans-serif;
   font-weight: 450;
@@ -73,8 +95,7 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color: var(--color-dark);
-  background-color: var(--color-secondary-hover);
+  color: var(--color-a-hover);
 }
 
 h1 {
@@ -150,17 +171,21 @@ header {
 }
 
 .nav a {
-  color: white;
+  color: var(--color-nav-a);
   background-color: var(--color-secondary);
 }
 
 .nav a:hover {
-  color: var(--color-dark);
+  color: var(--color-nav-a-hover);
   background-color: var(--color-secondary-hover);
 }
 
 a:hover .github-icon {
-  color: var(--color-dark);
+  color: var(--color-text);
+}
+
+a:hover .github-icon:hover {
+  color: var(--color-a-hover);
 }
 
 .github-icon {
@@ -206,11 +231,11 @@ a:hover .github-icon {
 
 /* about */
 .about-section {
-  color: white;
+  color: var(--color-text);
 }
 
 .about-section h2 {
-  color: white;
+  color: var(--color-text);
 }
 
 .about-div {
@@ -318,7 +343,7 @@ a:hover .github-icon {
 .projects-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
+  gap: 30px;
 }
 
 .project-card {
@@ -326,10 +351,11 @@ a:hover .github-icon {
   display: grid;
   grid-template-columns: 4fr 2fr;
   gap: 0px;
-  padding: 10px;
+  padding: 0px;
   text-align: left;
   overflow: hidden;
-  color: black;
+  color: var(--color-text);
+  border: 1px solid var(--color-secondary);
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
@@ -347,7 +373,6 @@ a:hover .github-icon {
   gap: 5px;
   padding: 15px;
   color: var(--color-text);
-  border: 1px solid var(--color-secondary);
 }
 
 .project-info .project-title {
@@ -612,8 +637,14 @@ a:hover .github-icon {
   animation: flash-out 0.3s ease-in-out forwards;
 }
 
-nav {
+.nav {
   font-weight: 600;
+}
+
+.nav ul {
+  display: flex;
+  -color: green;
+  flex-wrap: nowrap;
 }
 
 .pr nav ul {
@@ -661,7 +692,7 @@ footer {
   width: 100%;
   height: 140px;
   padding: 10px;
-  background-color: var(--color-dark);
+  background-color: var(--color-footer);
   color: white;
   text-align: center;
   font-size: 0.87rem;
@@ -686,7 +717,7 @@ footer {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  border: 3px solid var(--color-primary);
+  border: 3px solid var(--color-secondary);
   padding: 20px 15px;
 }
 
@@ -756,8 +787,59 @@ footer a {
 }
 
 footer a:hover {
-  color: var(--color-secondary-hover);
-  background-color: rgb(85, 85, 85);
+  color: var(--color-nav-a-hover);
+  background-color: var(--color-footer-hover);
+}
+
+/* Dark / Light mode toggle */
+/* Toggle container */
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+/* hide input checkbox */
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Rounded background slider */
+.theme-toggle .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-background-top);
+  transition: 0.4s;
+  border-radius: 999px;
+}
+
+/* Circle handle */
+.theme-toggle .slider::before {
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--color-secondary-hover);
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* On theme toggle input: checked (go to light mode) */
+.theme-toggle input:checked + .slider {
+  background-color: white;
+}
+
+.theme-toggle input:checked + .slider::before {
+  transform: translateX(22px);
 }
 
 @keyframes project-display {
@@ -840,12 +922,12 @@ footer a:hover {
 
 /* skeleton */
 .skeleton-bg {
-  background-color: hsl(0, 0%, 64%);
+  background-color: hsl(0, 0%, 80%);
 }
 
 .skeleton-bg {
   min-height: 20px;
-  background-color: hsl(0, 0%, 64%);
+  background-color: hsl(0, 0%, 80%);
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
@@ -853,7 +935,7 @@ footer a:hover {
   display: inline-block;
   height: 20px;
   width: 100%;
-  background-color: hsl(0, 0%, 64%);
+  background-color: hsl(0, 0%, 80%);
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
@@ -865,16 +947,19 @@ footer a:hover {
   display: inline-block;
   height: 20px;
   width: 40%;
-  background-color: hsl(0, 0%, 64%);
+  background-color: hsl(0, 0%, 80%);
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
 @keyframes skeleton-loading {
   0% {
-    background-color: hsl(0, 0%, 64%);
+    background-color: hsl(0, 0%, 80%);
+  }
+  50% {
+    background-color: hsl(0, 0%, 60%);
   }
   100% {
-    background-color: hsl(0, 0%, 44%);
+    background-color: hsl(0, 0%, 80%);
   }
 }
 
@@ -923,6 +1008,11 @@ footer a:hover {
     display: block;
   }
 
+  .nav ul {
+    display: flex;
+    flex-direction: column;
+  }
+
   nav ul li {
     padding: 0;
     margin: 0;
@@ -946,6 +1036,10 @@ footer a:hover {
   section {
     padding: 5px;
     padding-bottom: 20px;
+  }
+
+  .nav-theme-toggle {
+    display: none;
   }
 
   /* about */

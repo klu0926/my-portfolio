@@ -239,6 +239,13 @@ class Controller {
     contact.addEventListener('submit', (e) => {
       this.onFromSubmit(e)
     })
+
+    // theme toggle button
+    const themeToggle = document.querySelector('#theme-toggle-input')
+    themeToggle.addEventListener('click', () => {
+      this.toggleTheme()
+    })
+
   }
   async OnTagSelectorChange(e) {
     if (e) {
@@ -380,6 +387,13 @@ class Controller {
       return true
     } else {
       return false
+    }
+  }
+  toggleTheme() {
+    if (document.documentElement.getAttribute('data-theme') === 'light') {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
     }
   }
 }

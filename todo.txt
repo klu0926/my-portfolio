@@ -1,12 +1,8 @@
 Bug
-1. project display scroll doesn't show to the bottom of all the text.
-2. project display when open doesn't prevent body scrolling
+1. project display when open doesn't prevent body scrolling
 
 Style
-1. project display info 'title' 'tag' 'meta' style feel inconsistance
-2. project display meta link hover is currently "black"
 
 Feature
-1. add light/dark toggle to mobile
 
 

@@ -195,22 +195,26 @@ class Controller {
   eventSetup() {
     // burger menu event
     document.addEventListener('click', (e) => {
-      // when burger menu is open, close it if click somewhere else
+      const nav = document.querySelector('nav');
+      const burger = document.querySelector('.burger-container');
+
+      // If click is inside nav or on burger button, do nothing
+      if (nav.contains(e.target) || burger.contains(e.target)) {
+        return;
+      }
+
+      // Otherwise, close the menu (click was outside)
+      this.view.closeBurgerMenu();
+    });
+    document.querySelector('.burger-container').addEventListener('click', (e) => {
+      e.stopPropagation()
       const nav = document.querySelector('.nav')
-      const burger = document.querySelector('.burger')
-      const isOpen = window.getComputedStyle(nav).display !== 'none'
-      if (!isOpen) return
-      if (e.target.contains(nav) || e.target.contains(burger)) return
-      // close
-      this.view.closeBurgerMenu()
-    })
-    document.querySelector('.burger-container').addEventListener('click', () => {
-      const nav = document.querySelector('.nav')
-      // check burger menu open
-      if (window.getComputedStyle(nav).display === 'none') {
-        this.view.openBurgerMenu()
-      } else {
+
+      // if is already open, close it, else open it
+      if (nav.classList.contains('open')) {
         this.view.closeBurgerMenu()
+      } else {
+        this.view.openBurgerMenu()
       }
     })
 

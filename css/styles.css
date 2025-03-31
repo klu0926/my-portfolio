@@ -174,14 +174,6 @@ header {
   background-color: var(--color-secondary-hover);
 }
 
-a:hover .github-icon {
-  color: var(--color-text);
-}
-
-a:hover .github-icon:hover {
-  color: var(--color-a-hover);
-}
-
 .github-icon {
   color: white;
 }
@@ -1092,7 +1084,9 @@ footer a:hover {
   }
 
   .nav-theme-toggle {
-    display: none;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
   }
 
   /* about */

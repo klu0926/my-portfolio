@@ -72,6 +72,7 @@ class View {
               src="${project.cover}"
               alt="project image"
               data-title="${project.title}"
+              loading="lazy"
             />
         </div>
             <div class='project-info' data-title="${project.title}">

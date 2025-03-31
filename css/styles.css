@@ -748,6 +748,7 @@ footer {
 .contact-form textarea {
   font-size: 1rem;
   padding: 10px 5px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .validation {

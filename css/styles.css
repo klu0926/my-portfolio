@@ -831,6 +831,7 @@ footer a:hover {
   background-color: var(--color-secondary-hover);
   transition: 0.4s;
   border-radius: 50%;
+  z-index: 10;
 }
 
 /* On theme toggle input: checked (go to light mode) */
@@ -840,6 +841,27 @@ footer a:hover {
 
 .theme-toggle input:checked + .slider::before {
   transform: translateX(22px);
+}
+
+/* svg */
+.dark-svg {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  left: 5px;
+  bottom: 6px;
+  z-index: 1;
+  fill: var(--color-primary);
+}
+
+.light-svg {
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  right: 4px;
+  bottom: 5px;
+  z-index: 1;
+  fill: white;
 }
 
 @keyframes project-display {

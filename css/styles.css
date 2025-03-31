@@ -229,10 +229,6 @@ a:hover .github-icon:hover {
   color: var(--color-text);
 }
 
-.about-section h2 {
-  color: var(--color-text);
-}
-
 .about-div {
   display: flex;
   gap: 10px;
@@ -311,11 +307,13 @@ a:hover .github-icon:hover {
   margin-left: 10px;
   font-size: 1rem;
   text-align: center;
-  border: 2px solid white;
   color: white;
+  outline: none;
+  border: none;
   background-color: var(--color-secondary);
-  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
+  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -447,21 +445,19 @@ a:hover .github-icon:hover {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: -20px;
+  top: 7px;
   right: 10px;
   height: 40px;
   width: 40px;
   font-size: 1rem;
   border-radius: 50px;
   color: var(--color-secondary);
-  border: 2px solid var(--color-secondary);
   background-color: white;
   cursor: pointer;
 }
 .project-display .project-display-close:hover {
   scale: 0.95;
-  color: white;
-  border: 2px solid var(--color-secondary-hover);
+  color: var(--color-secondary-hover);
   background-color: rgb(255, 234, 234);
 }
 
@@ -508,19 +504,18 @@ a:hover .github-icon:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 5px;
+  gap: 0px 7px;
   padding-bottom: 10px;
   border-bottom: 3px dotted var(--color-secondary-hover);
 }
 
 .project-display-tag {
   display: inline-block;
-  font-size: 0.8rem;
-  padding: 3px 8px;
-  border-radius: 5px;
+  font-size: 0.9rem;
+  padding: 2px 8px;
   text-transform: uppercase;
-  background-color: var(--color-secondary-hover);
-  color: white;
+  font-weight: bold;
+  color: rgb(106, 18, 18);
 }
 
 .project-display-mid {
@@ -564,6 +559,8 @@ a:hover .github-icon:hover {
   background-color: var(--color-secondary-hover);
   padding: 3px 10px;
   border-radius: 5px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
   text-transform: capitalize;
 }
 
@@ -698,12 +695,12 @@ section.no-border {
 }
 
 section h2 {
+  color: var(--color-text);
   margin-bottom: 10px;
 }
 
 /* header icon */
 section i {
-  color: var(--color-secondary);
   font-weight: normal;
 }
 
@@ -1165,18 +1162,22 @@ footer a:hover {
   }
 
   .project-display .project-display-close {
-    top: -20px;
+    width: 35px;
+    height: 35px;
+    top: 7px;
     right: 10px;
   }
 
   .project-display-title {
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    line-height: 1.3rem;
     color: white;
+    padding-top: 10px;
   }
 
   .project-display-tag {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 
   .project-display-meta p {

@@ -132,7 +132,7 @@ class View {
       project.meta.forEach(link => {
         const p = document.createElement('p')
 
-        p.innerHTML = `<span class='meta'>${link.key}</span>: <a target='_blank' href=${link.value}>${link.value}</a>`
+        p.innerHTML = `<span class='meta'>${link.key}</span> <a target='_blank' href=${link.value}>${link.value}</a>`
         meta.appendChild(p)
       })
     }

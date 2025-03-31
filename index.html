@@ -10,11 +10,21 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
+    <!-- Quill css-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css"
+      rel="stylesheet"
+    />
     <!--my css-->
     <link rel="stylesheet" href="css/styles.css" />
     <!--typed animation js-->
     <script
       src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"
+      defer
+    ></script>
+    <!---quill js-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.min.js"
       defer
     ></script>
     <!--my js-->
@@ -161,18 +171,15 @@
             <div class="project-display-close">
               <i class="fa-solid fa-x"></i>
             </div>
-            <div class="project-display-image">
-              <img src="#" alt="project-cover" />
-            </div>
             <div class="project-display-info">
               <div class="project-display-top">
                 <div class="project-display-title"></div>
                 <div class="project-display-tags"></div>
+                <div class="project-display-meta"></div>
               </div>
 
               <div class="project-display-mid">
                 <div class="project-display-description"></div>
-                <div class="project-display-meta"></div>
               </div>
             </div>
           </div>
@@ -352,6 +359,10 @@
         </form>
       </section>
     </div>
+
+    <!---quill -->
+    <div id="quill-container"></div>
+
     <!-- Footer Section -->
     <footer>
       <p>&copy; 2025 Kuo Yu Lu. All Rights Reserved.</p>

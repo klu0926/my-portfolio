@@ -1,5 +1,6 @@
 import { getData } from "./src/getPortfolioData.js"
 import "./src/typed.js"
+import { setQuill } from "./src/quill.js"
 
 class Data {
   constructor() {
@@ -26,7 +27,6 @@ class Data {
       console.error(err)
     }
   }
-
 }
 
 
@@ -114,11 +114,8 @@ class View {
     const title = display.querySelector('.project-display-title')
     title.innerText = project.title
 
-    const description = display.querySelector('.project-display-description')
-    description.innerText = project.description
-
-    const image = display.querySelector('.project-display-image img')
-    image.src = project.cover
+    // const image = display.querySelector('.project-display-image img')
+    // image.src = project.cover
 
     // tags
     const tags = display.querySelector('.project-display-tags')
@@ -143,6 +140,10 @@ class View {
         meta.appendChild(p)
       })
     }
+
+    // set quill
+    setQuill(project.data)
+
   }
   closeProjectDisplay() {
     const display = document.querySelector('.project-display-outter')
@@ -398,6 +399,7 @@ class Controller {
     }
   }
 }
+
 
 
 // Run 

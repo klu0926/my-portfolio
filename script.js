@@ -1,5 +1,5 @@
 import { getData } from "./src/getPortfolioData.js"
-import { welcomeTyped, contactTyped } from "./src/typed.js"
+import "./src/typed.js"
 
 class Data {
   constructor() {

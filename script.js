@@ -113,10 +113,6 @@ class View {
 
     const title = display.querySelector('.project-display-title')
     title.innerText = project.title
-
-    // const image = display.querySelector('.project-display-image img')
-    // image.src = project.cover
-
     // tags
     const tags = display.querySelector('.project-display-tags')
     tags.innerHTML = ''

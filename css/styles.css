@@ -355,7 +355,7 @@ a:hover .github-icon:hover {
   text-align: left;
   overflow: hidden;
   color: var(--color-text);
-  border: 1px solid var(--color-secondary);
+  border: 2px solid var(--color-secondary);
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }

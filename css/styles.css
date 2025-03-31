@@ -7,12 +7,10 @@
 
   --color-dark: #000000;
   --color-primary: #882727;
-  --color-primary-hover: #674a4a;
   --color-secondary: rgb(198, 63, 63);
   --color-secondary-hover: #e06767;
 
   --color-card-background: white;
-  --color-line: rgb(253, 125, 125);
   --color-header: white;
   --color-text: rgb(255, 255, 255);
   --color-nav-a: white;
@@ -23,19 +21,17 @@
 
 /* light mode */
 [data-theme='light'] {
-  --color-background-top: white;
+  --color-background-top: rgb(252, 241, 233);
   --color-background-bottom: white;
   --color-footer: #882727;
   --color-footer-hover: #ae4d4d;
 
   --color-dark: #000000;
   --color-primary: #882727;
-  --color-primary-hover: #674a4a;
   --color-secondary: rgb(198, 63, 63);
   --color-secondary-hover: #e06767;
 
   --color-card-background: #ffffff;
-  --color-line: rgb(253, 125, 125);
   --color-header: #000000;
   --color-text: #000000;
   --color-nav-a: white;
@@ -44,7 +40,7 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--color-background-bottom);
+  background-color: var(--color-background-top);
 }
 
 * {

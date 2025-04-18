@@ -181,6 +181,7 @@ header {
 /* welcome */
 .welcome {
   text-align: center;
+  min-height: 50px;
 }
 
 #welcome-message {
@@ -680,6 +681,7 @@ section {
   margin-bottom: 10px;
   padding-bottom: 50px;
   border-bottom: 1px dashed var(--color-secondary);
+  scroll-margin-top: 100px;
 }
 
 section.no-border {

@@ -156,7 +156,9 @@ class View {
   }
   displayFlashMessage(message, timer = 3000) {
     const flash = document.querySelector('#flash')
-    flash.innerText = message
+    const flashMessage = document.querySelector('.flash-message')
+
+    flashMessage.innerText = message
     flash.classList.remove('out')
     flash.classList.add('in')
 

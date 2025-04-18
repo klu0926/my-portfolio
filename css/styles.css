@@ -1099,7 +1099,7 @@ footer a:hover {
   }
 
   .middle-container {
-    padding-top: 120px;
+    padding-top: 70px;
   }
 
   /* project */
@@ -1190,5 +1190,9 @@ footer a:hover {
   .path-div:last-child::after {
     left: -20px;
     top: 42%;
+  }
+
+  .ql-editor {
+    padding-bottom: 150px;
   }
 }

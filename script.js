@@ -1,6 +1,6 @@
-import { getData } from "./src/getPortfolioData.js"
-import "./src/typed.js"
-import { setQuill } from "./src/quill.js"
+import { getData } from "./src/getPortfolioData-min.js"
+import "./src/typed-min.js"
+import { setQuill } from "./src/quill-min.js"
 
 class Data {
   constructor() {

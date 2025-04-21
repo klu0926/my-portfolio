@@ -521,7 +521,7 @@ header {
   background-color: black;
   border: none;
   outline: none;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .project-display-description {
